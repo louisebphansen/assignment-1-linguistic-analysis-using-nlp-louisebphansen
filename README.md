@@ -18,7 +18,7 @@ All code was created by me, but code provided in the notebooks used for teaching
 
 | <div style="width:120px"></div>| Description |
 |---------|:-----------|
-|
+|```in```| Contains the *USEcorpus* dataset used for the assignment |
 | ```out``` | Contains csv files produced by running the code in ```src``` |
 | ```src```  | Contains the python scripts for extracting linguistic information from the dataset     |
 | ```run.sh```    | Bash script for running the code |
