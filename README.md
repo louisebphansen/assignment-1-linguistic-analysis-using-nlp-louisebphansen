@@ -63,7 +63,7 @@ Next, run:
 bash setup.sh
 ```
 
-This will create a virtual environment in the directory (```env```), install the required packages to run the code and download the *'en_core_web_md'* from ```spaCy```.
+This will create a virtual environment in the directory (```env```), install the required packages to run the code and download the *'en_core_web_md'* model from ```spaCy```.
 
 
 #### Run code
@@ -94,7 +94,11 @@ python3 src/extract_ling_info.py --dataset <dataset>
 - **Dataset:** Name of dataset placed in the ```in``` folder with subdirectories containing txt files to iterate over.
 
 ### Results
+A seperate csv file with extracted linguistic information for each subfolder can be found in the ```out``` folder.
 
+The table below shows an example csv file.
+
+![Screenshot 2024-02-20 at 14 28 32](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/7c1de8f9-27bc-47d6-a0bf-fb68acdcf646)
 
 
 
