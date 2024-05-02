@@ -7,6 +7,6 @@ source env/bin/activate
 pip install -r requirements.txt
 
 # download spacy model
-python3 -m spacy download en_core_web_md
+#python3 -m spacy download en_core_web_md
 
 deactivate 

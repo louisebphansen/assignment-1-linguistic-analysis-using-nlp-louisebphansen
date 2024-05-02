@@ -8,9 +8,17 @@ import pandas as pd
 import re
 from tqdm import tqdm
 import argparse
+from codecarbon import EmissionsTracker
+from codecarbon import track_emissions
 
 # import function from utils script
 from my_spacy_utils import extract_ling_info
+
+# define emissionstracker to track CO2 emissions (for assignment 5)
+tracker = EmissionsTracker(project_name="assignment1_subtasks",
+                    experiment_id="linguistic_analysis",
+                    output_dir='emissions',
+                    output_file="assignment1_subtasks_emissions.csv")
 
 # define argument parser
 def argument_parser():
@@ -49,8 +57,12 @@ def extract_from_folder(in_path: str, folder_name: str):
     # define path to folder to iterate over
     folder_path = os.path.join(in_path, folder_name)
 
+    # get properly sorted files in that folder
+    dirs = os.listdir(folder_path)
+    sorted_dirs = sorted(dirs)
+
     # loop over each file in that folder
-    for file in tqdm(os.listdir(folder_path), desc='Extracting linguistic information'):
+    for file in tqdm(sorted_dirs, desc='Extracting linguistic information'):
         try:
             # extract linguistic information from that file
             rel_freqs, ner = extract_ling_info(folder_path, file)
@@ -84,6 +96,11 @@ def extract_from_folder(in_path: str, folder_name: str):
     # save df as a csv in 'out' folder
     df.to_csv(os.path.join('out', f'{folder_name}.csv'), index=False)
 
+# create new tracker using a decorator to track emissions for running the entire script
+@track_emissions(project_name="assignment1_FULL",
+                experiment_id="assignment1_FULL",
+                output_dir='emissions',
+                output_file="assignment1_FULL_emissions.csv")
 def main():
     
     # parse arguments
@@ -92,9 +109,27 @@ def main():
     # define path to folder with subdirectories
     data_path = os.path.join('in', args['dataset'])
 
+    # track downloading of spacy model
+    tracker.start_task('Download spacy model')
+
+    # download spacy model
+    spacy.cli.download('en_core_web_md')
+
+    # stop tracking
+    downloading_emissions = tracker.stop_task()
+
+    # track linguistic analysis task
+    tracker.start_task('Extract linguistic information')
+
     # loop over each directory in the folder and save csv file with linguistic information
-    for dir in os.listdir(data_path):
+    for dir in sorted(os.listdir(data_path)):
         extract_from_folder(data_path, dir)
+    
+    # stop tracking of analysis
+    analysis_emissions = tracker.stop_task()
+
+    # stop overall tracking 
+    tracker.stop()
 
 if __name__ == '__main__':
    main()
