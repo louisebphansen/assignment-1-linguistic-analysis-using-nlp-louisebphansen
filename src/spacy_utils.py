@@ -1,4 +1,9 @@
 ''' 
+LANGUAGE ANALYTICS @ AARHUS UNIVERSITY, ASSIGNMENT 1: Linguistic Analysis using NLP
+
+AUTHOR: Louise Brix Pilegaard Hansen
+
+DESCRIPTION:
 This script contains util functions for extracting relevant linguistic information from a text corpus
 '''
 # import required modules

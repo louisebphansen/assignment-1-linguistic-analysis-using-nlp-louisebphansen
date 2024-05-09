@@ -1,4 +1,9 @@
 '''
+LANGUAGE ANALYTICS @ AARHUS UNIVERSITY, ASSIGNMENT 1: Linguistic Analysis using NLP
+
+AUTHOR: Louise Brix Pilegaard Hansen
+
+DESCRIPTION:
 This script loops over files in subfolders of a given directory and extracts linguistic information from them
 '''
 # import required modules
@@ -12,7 +17,7 @@ from codecarbon import EmissionsTracker
 from codecarbon import track_emissions
 
 # import function from utils script
-from my_spacy_utils import extract_ling_info
+from spacy_utils import extract_ling_info
 
 # define emissionstracker to track CO2 emissions (for assignment 5)
 tracker = EmissionsTracker(project_name="assignment1_subtasks",
@@ -101,14 +106,18 @@ def extract_from_folder(in_path: str, folder_name: str):
                 experiment_id="assignment1_FULL",
                 output_dir='emissions',
                 output_file="assignment1_FULL_emissions.csv")
-def main():
+
+def linguistic_analysis(dataset:str):
+
+    '''
+    Function to extract linguistic information from all folders in the given dataset.
+
+    Arguments:
+        - dataset: name of the linguistic dataset to use. must be a subfolder of /in and contain subdirectories with .txt files.
     
-    # parse arguments
-    args = argument_parser()
-
-    # define path to folder with subdirectories
-    data_path = os.path.join('in', args['dataset'])
-
+    Returns:
+        None
+    '''
     # track downloading of spacy model
     tracker.start_task('Download spacy model')
 
@@ -118,18 +127,54 @@ def main():
     # stop tracking
     downloading_emissions = tracker.stop_task()
 
+    # define path to folder with subdirectories
+    data_path = os.path.join('in', dataset)
+
     # track linguistic analysis task
     tracker.start_task('Extract linguistic information')
 
     # loop over each directory in the folder and save csv file with linguistic information
     for dir in sorted(os.listdir(data_path)):
         extract_from_folder(data_path, dir)
-    
-    # stop tracking of analysis
+
+    # stop tracking of linguistic analysis
     analysis_emissions = tracker.stop_task()
 
     # stop overall tracking 
     tracker.stop()
+
+def main():
+    
+    # parse arguments
+    args = argument_parser()
+
+    # perform linguistic analysis
+    linguistic_analysis(args['dataset'])
+
+    # define path to folder with subdirectories
+    #data_path = os.path.join('in', args['dataset'])
+
+    # track downloading of spacy model
+    #tracker.start_task('Download spacy model')
+
+    # download spacy model
+    #spacy.cli.download('en_core_web_md')
+
+    # stop tracking
+    #downloading_emissions = tracker.stop_task()
+
+    # track linguistic analysis task
+    #tracker.start_task('Extract linguistic information')
+
+    # loop over each directory in the folder and save csv file with linguistic information
+    #for dir in sorted(os.listdir(data_path)):
+        #extract_from_folder(data_path, dir)
+    
+    # stop tracking of analysis
+    #analysis_emissions = tracker.stop_task()
+
+    # stop overall tracking 
+    #tracker.stop()
 
 if __name__ == '__main__':
    main()
