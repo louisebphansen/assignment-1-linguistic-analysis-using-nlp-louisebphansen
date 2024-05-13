@@ -18,7 +18,7 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 | <div style="width:120px"></div>| Description |
 |---------|:-----------|
-|```in```| Contains the *USEcorpus* dataset used for the assignment |
+|```data.zip```| Zip file containing the *USEcorpus* dataset used for the assignment. Unzipping it will create the '/in' folder which contains subfolders with text files |
 | ```out``` | Contains the output csv files produced by running the code in ```src``` |
 | ```src```  | Contains the Python scripts for extracting linguistic information from the dataset     |
 | ```run.sh```    | Bash script for running the code |
@@ -28,16 +28,16 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 ### Methods
 
-This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/my_spacy_utils.py``` contains the code to extract the relative frequencies of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses this code to loop over an input folder with subdirectories containing the input text files. 
+This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files. 
 
 The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and named entities. I am  using the *'en_core_web_md'* model.
 
 ### Data
-The dataset used for this assignment is *USEcorpus*, which consists of 1,489 essays by Swedish students sorted into 14 subfolders. 
+The dataset used for this assignment is *USEcorpus*, which consists of 1,489 essays by Swedish students sorted into 14 subfolders - one for each assignment. More information can be found [here](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2457)
 
 ### Usage
 
-All code for this assignment was designed to run on an Ubuntu 22.04 operating system using Python version 3.10.12. It is therefore not guaranteed that it will work on other operating systems.
+All code for this assignment was designed to run on an Ubuntu 24.04 operating system using Python version 3.12.2. It is therefore not guaranteed that it will work on other operating systems.
 
 It is important that you run all code from the main folder, i.e., *assignment-1-linguistic-analysis-using-nlp-louisebphansen*. Your terminal should look like this:
 
@@ -63,7 +63,7 @@ Next, run:
 bash setup.sh
 ```
 
-This will create a virtual environment in the directory (```env```), install the required packages to run the code and download the *'en_core_web_md'* model from ```spaCy```.
+This will create a virtual environment in the directory (```env```) and install the required packages to run the code.
 
 
 #### Run code
@@ -77,7 +77,7 @@ To run the code in this repo with predefined arguments, run:
 bash run.sh
 ```
 
-This will activate the virual environment and run the ```src/extract_ling_information.py```script with default arguments to extract linguistic information about POS-tags and NER-labels from each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder.
+This will activate the virual environment and unzip the *data.zip* file to create the ```in```folder containing the USEcorpus data. Next,the ```src/extract_ling_information.py```script will be run with default arguments to extract linguistic information about POS-tags and NER-labels from each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder. 
  
 
 ##### Define arguments yourself
@@ -87,6 +87,10 @@ Alternatively, the script can be run with different arguments:
 # activate the virtual environment
 source env/bin/activate
 
+# unzip data folder to create /in folder containing the usecorpus data
+unzip data.zip
+
+# run script
 python3 src/extract_ling_info.py --dataset <dataset> 
 ```
 **Arguments:**
@@ -101,8 +105,18 @@ The table below shows an example csv file.
 ![Screenshot 2024-02-20 at 14 28 32](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/7c1de8f9-27bc-47d6-a0bf-fb68acdcf646)
 
 
+### Discussion
+
+The plots below show the average relative frequencies of each analyzed POS-tags across essays and average amount of unique NER labels across essays. The plots were generated using the ```src/plotting.py```script, which calculates the mean relative frequency per 10,000 words and mean amount of unique NER labels for each essay by averaging over the result of the linguistic analysis of each student's essay(as found in the ```out```folder), for each assignment. I have plotted it as a lineplot to show the development across time (=essays), in order to see whether the students' grammatical usage develops the further they get in their studies.
+
+![alt text](out/pos_mean_freq.png)
+
+From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the noun usage is somewhat the same across all essays.
 
 
 
+![alt text](out/ner_mean_freq.png)
+
+The second plot 
 
 
