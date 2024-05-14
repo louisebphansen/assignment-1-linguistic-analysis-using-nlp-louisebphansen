@@ -111,12 +111,20 @@ The plots below show the average relative frequencies of each analyzed POS-tags 
 
 ![alt text](out/pos_mean_freq.png)
 
-From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the noun usage is somewhat the same across all essays.
-
+From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the verb usage is somewhat the same across all essays.
 
 
 ![alt text](out/ner_mean_freq.png)
 
-The second plot 
+The second plot shows that that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
 
+Overall, the first plot shows that there does not seem to be an average increase in the mean relative frequency of different part of speech tags in the essays. The second plot shows there seems to be a bit of a development in the usage of unique persons and organizations, but that the effect seem to be more dependent on the specific essay rather than a development in English proficiency over the course of their studies.
 
+Generally, one should be careful when interpreting the results presented in the above plots as well as the frequencies and counts of POS and NER tags. One reason for this being that the usage of parts-of-speech or named entities would be expected to change quite a lot depending on what topic the assignment should be about or what type of essay they should write. And as the topics of the different essays are not the same throughout the dataset, it becomes difficult to compare the usage of POS and named entitities in the essays to each other. 
+
+Moreover, if the goal of analyzing these essays is to assess change in English proficiency or complexity of a text, there are nowadays arguably more sophisticated ways of doing this, for example with the use of transformers or other pre-trained model architectures. 
+
+### A note on carbon emissions
+
+The measured CO2-eq emissions for this project was ..
+See [Assignment 5](https://github.com/louisebphansen/assignment-5-evaluating-environmental-impact-louisebphansen) for a further discussion of this. 
