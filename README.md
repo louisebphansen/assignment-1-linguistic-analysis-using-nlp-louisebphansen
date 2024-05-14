@@ -19,7 +19,7 @@ All code was created by me, but code provided in the notebooks for the course ha
 | <div style="width:120px"></div>| Description |
 |---------|:-----------|
 |```data.zip```| Zip file containing the *USEcorpus* dataset used for the assignment. Unzipping it will create the '/in' folder which contains subfolders with text files |
-| ```out``` | Contains the output csv files produced by running the code in ```src``` |
+| ```out``` | Contains the output csv files produced by running the code in ```src``` as well as plots for the discussion |
 | ```src```  | Contains the Python scripts for extracting linguistic information from the dataset     |
 | ```run.sh```    | Bash script for running the code |
 | ```setup.sh```  | Bash script for setting up virtual environment and downloading spaCy model |
