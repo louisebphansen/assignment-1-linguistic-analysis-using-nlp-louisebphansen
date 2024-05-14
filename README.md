@@ -33,7 +33,7 @@ This project contains the code to extract relevant linguistic information from a
 The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and named entities. I am  using the *'en_core_web_md'* model.
 
 ### Data
-The dataset used for this assignment is *USEcorpus*, which consists of 1,489 essays by Swedish students sorted into 14 subfolders - one for each assignment. More information can be found [here](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2457)
+The dataset used for this assignment is *USEcorpus*, which consists of 1,489 essays by Swedish students sorted into 14 subfolders - one for each assignment. More information can be found [here](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2457).
 
 ### Usage
 
@@ -77,7 +77,7 @@ To run the code in this repo with predefined arguments, run:
 bash run.sh
 ```
 
-This will activate the virual environment and unzip the *data.zip* file to create the ```in```folder containing the USEcorpus data. Next,the ```src/extract_ling_information.py```script will be run with default arguments to extract linguistic information about POS-tags and NER-labels from each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder. 
+This will activate the virual environment and unzip the *data.zip* file to create the ```in```folder containing the USEcorpus data. Next,the ```src/extract_ling_information.py```script will be run with default arguments to extract linguistic information about POS-tags and NER-labels from all texts in each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder. 
  
 
 ##### Define arguments yourself
