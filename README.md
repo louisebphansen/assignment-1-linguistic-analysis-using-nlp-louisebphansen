@@ -100,10 +100,6 @@ python3 src/extract_ling_info.py --dataset <dataset>
 ### Results
 A seperate csv file with extracted linguistic information for each subfolder can be found in the ```out``` folder.
 
-The table below shows an example csv file.
-
-![Screenshot 2024-02-20 at 14 28 32](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/7c1de8f9-27bc-47d6-a0bf-fb68acdcf646)
-
 
 ### Discussion
 
