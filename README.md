@@ -28,7 +28,7 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 ### Methods
 
-This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files. 
+This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files. ```src/visualize.py``` contains code to visualize the results.
 
 The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and named entities. I am  using the *'en_core_web_md'* model.
 
@@ -107,7 +107,7 @@ The table below shows an example csv file.
 
 ### Discussion
 
-The plots below show the average relative frequencies of each analyzed POS-tags across essays and average amount of unique NER labels across essays. The plots were generated using the ```src/plotting.py```script, which calculates the mean relative frequency per 10,000 words and mean amount of unique NER labels for each essay by averaging over the result of the linguistic analysis of each student's essay(as found in the ```out```folder), for each assignment. I have plotted it as a lineplot to show the development across time (=essays), in order to see whether the students' grammatical usage develops the further they get in their studies.
+The plots below show the average relative frequencies of each analyzed POS-tags across essays and average amount of unique NER labels across essays. The plots were generated using the ```src/visualize.py```script, which calculates the mean relative frequency per 10,000 words and mean amount of unique NER labels for each essay by averaging over the result of the linguistic analysis of each student's essay(as found in the ```out```folder), for each assignment. I have plotted it as a lineplot to show the development across time (=essays), in order to see whether the students' grammatical usage develops the further they get in their studies.
 
 ![alt text](out/pos_mean_freq.png)
 
