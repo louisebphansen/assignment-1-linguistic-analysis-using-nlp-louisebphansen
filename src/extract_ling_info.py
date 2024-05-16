@@ -151,30 +151,5 @@ def main():
     # perform linguistic analysis
     linguistic_analysis(args['dataset'])
 
-    # define path to folder with subdirectories
-    #data_path = os.path.join('in', args['dataset'])
-
-    # track downloading of spacy model
-    #tracker.start_task('Download spacy model')
-
-    # download spacy model
-    #spacy.cli.download('en_core_web_md')
-
-    # stop tracking
-    #downloading_emissions = tracker.stop_task()
-
-    # track linguistic analysis task
-    #tracker.start_task('Extract linguistic information')
-
-    # loop over each directory in the folder and save csv file with linguistic information
-    #for dir in sorted(os.listdir(data_path)):
-        #extract_from_folder(data_path, dir)
-    
-    # stop tracking of analysis
-    #analysis_emissions = tracker.stop_task()
-
-    # stop overall tracking 
-    #tracker.stop()
-
 if __name__ == '__main__':
    main()

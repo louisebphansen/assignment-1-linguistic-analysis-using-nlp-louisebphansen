@@ -110,7 +110,7 @@ The plots below show the average relative frequencies of each analyzed POS-tags 
 From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the verb usage is somewhat the same across all essays.
 
 
-![alt text](out/ner_mean_freq.png)
+![alt text](out/ner_mean_count.png)
 
 The second plot shows that that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
 

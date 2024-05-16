@@ -22,7 +22,6 @@ def collect_dfs(dir_path):
 
     # read csv files as dataframes and concatenate to one big
     for file in sorted(result):
-        #folder_path = os.path.join(dir_path, file)
         df = pd.read_csv(file)
         df['essay'] = file[:2] # remove .csv 
         full_df = pd.concat([full_df, df])
@@ -89,7 +88,6 @@ def plot_pos(pos_means, essays):
     plt.xlabel('Essay')
     plt.title('Average relative frequencies of POS tags across essays')
 
-    #fig_path = os.path.join('pos_mean_freq.png')
     plt.savefig('pos_mean_freq.png')
 
 def plot_ner(ner_means, essays):
@@ -105,12 +103,11 @@ def plot_ner(ner_means, essays):
     
     plt.legend()
     plt.tick_params(axis='x', labelrotation=80)
-    plt.ylabel('Mean amount of unique NER labels')
+    plt.ylabel('Mean count of unique NER labels')
     plt.xlabel('Essay')
-    plt.title('Average amount of unique NER labels across essays')
+    plt.title('Average count of unique NER labels across essays')
 
-    #fig_path = os.path.join('out', 'ner_mean_freq.png')
-    plt.savefig('ner_mean_freq.png')
+    plt.savefig('ner_mean_count.png')
 
 def main():
     
