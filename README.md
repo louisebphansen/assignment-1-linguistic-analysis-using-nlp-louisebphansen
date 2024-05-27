@@ -21,14 +21,14 @@ All code was created by me, but code provided in the notebooks for the course ha
 | ```out``` | Contains the output csv files produced by running the code in ```src``` as well as plots for the discussion |
 | ```src```  | Contains the Python scripts for extracting linguistic information from the dataset     |
 | ```run.sh```    | Bash script for running the code |
-| ```setup.sh```  | Bash script for setting up virtual environment and downloading spaCy model |
+| ```setup.sh```  | Bash script for setting up virtual environment |
 | ```requirements.txt```  | Packages required to run the code|
-|```emissions```|Contains csv files with information about how much carbon is emitted when running the code, which is used for [Assignment 5](https://github.com/louisebphansen/assignment-5-evaluating-environmental-impact-louisebphansen)|
+|```emissions```|Contains csv files with information about how much CO2 is emitted when running the code, which is used for [Assignment 5](https://github.com/louisebphansen/assignment-5-evaluating-environmental-impact-louisebphansen)|
 
 
 ### Methods
 
-This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files. ```src/visualize.py``` contains code to visualize the results.
+This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files and extracts linguistic information from them. ```src/visualize.py``` contains code to visualize these results.
 
 The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and named entities. I am  using the *'en_core_web_md'* model.
 
@@ -92,7 +92,7 @@ Alternatively, the script can be run with different arguments:
 
 ```
 # activate the virtual environment
-source env/bin/activate
+source ./env/bin/activate
 
 # run script
 python3 src/extract_ling_info.py --dataset <dataset> 
@@ -116,9 +116,9 @@ From the first plot, it is first of all evident that the students generally use 
 
 ![alt text](out/ner_mean_count.png)
 
-The second plot shows that that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
+The second plot shows that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
 
-Overall, the first plot shows that there does not seem to be an average increase in the mean relative frequency of different part of speech tags in the essays. The second plot shows there seems to be a bit of a development in the usage of unique persons and organizations, but that the effect seem to be more dependent on the specific essay rather than a development in English proficiency over the course of their studies.
+Overall, the first plot shows that there does not seem to be an average increase in the mean relative frequency of different part of speech tags in the essays, but rather large fluctuations. The second plot shows there seems to be a bit of a development in the usage of unique persons and organizations, but that the effect seem to be more dependent on the specific essay rather than a development in English proficiency over the course of their studies.
 
 #### Limitations
 Generally, one should be careful when interpreting the results presented in the above plots as well as the frequencies and counts of POS and NER tags. One reason for this being that the usage of parts-of-speech or named entities would be expected to change quite a lot depending on what topic the assignment should be about or what type of essay they should write. And as the topics of the different essays are not the same throughout the dataset, it becomes difficult to compare the usage of POS and named entitities in the essays to each other. 
