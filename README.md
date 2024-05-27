@@ -117,6 +117,7 @@ The second plot shows that that students on average use more unique persons in t
 
 Overall, the first plot shows that there does not seem to be an average increase in the mean relative frequency of different part of speech tags in the essays. The second plot shows there seems to be a bit of a development in the usage of unique persons and organizations, but that the effect seem to be more dependent on the specific essay rather than a development in English proficiency over the course of their studies.
 
+#### Limitations
 Generally, one should be careful when interpreting the results presented in the above plots as well as the frequencies and counts of POS and NER tags. One reason for this being that the usage of parts-of-speech or named entities would be expected to change quite a lot depending on what topic the assignment should be about or what type of essay they should write. And as the topics of the different essays are not the same throughout the dataset, it becomes difficult to compare the usage of POS and named entitities in the essays to each other. 
 
 Moreover, if the goal of analyzing these essays is to assess change in English proficiency or complexity of a text, there are nowadays arguably more sophisticated ways of doing this, for example with the use of transformers or other pre-trained model architectures. 
