@@ -18,7 +18,6 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 | <div style="width:120px"></div>| Description |
 |---------|:-----------|
-|```data.zip```| Zip file containing the *USEcorpus* dataset used for the assignment. Unzipping it will create the '/in' folder which contains subfolders with text files |
 | ```out``` | Contains the output csv files produced by running the code in ```src``` as well as plots for the discussion |
 | ```src```  | Contains the Python scripts for extracting linguistic information from the dataset     |
 | ```run.sh```    | Bash script for running the code |
@@ -66,6 +65,13 @@ bash setup.sh
 
 This will create a virtual environment in the directory (```env```) and install the required packages to run the code.
 
+#### Download data
+
+Create a folder in the main directory called ```in```.
+
+Find the data [here](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2457#) and download the file called *USEcorpus.zip*. 
+
+Unzip the file, and place the *USEcorpus* folder in the ```in``` folder.
 
 #### Run code
 
@@ -78,7 +84,7 @@ To run the code in this repo with predefined arguments, run:
 bash run.sh
 ```
 
-This will activate the virual environment and unzip the *data.zip* file to create the ```in```folder containing the USEcorpus data. Next,the ```src/extract_ling_information.py```script will be run with default arguments to extract linguistic information about POS-tags and NER-labels from all texts in each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder. 
+This will activate the virual environment and run the ```src/extract_ling_information.py```script with default arguments to extract linguistic information about POS-tags and NER-labels from all texts in each subfolder in the USEcorpus dataset. The output from this is saved in the ```out```folder. 
  
 
 ##### Define arguments yourself
@@ -87,9 +93,6 @@ Alternatively, the script can be run with different arguments:
 ```
 # activate the virtual environment
 source env/bin/activate
-
-# unzip data folder to create /in folder containing the usecorpus data
-unzip data.zip
 
 # run script
 python3 src/extract_ling_info.py --dataset <dataset> 
