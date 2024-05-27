@@ -109,12 +109,15 @@ A seperate csv file with extracted linguistic information for each subfolder can
 
 The plots below show the average relative frequencies of each analyzed POS-tags across essays and average amount of unique NER labels across essays. The plots were generated using the ```src/visualize.py```script, which calculates the mean relative frequency per 10,000 words and mean amount of unique NER labels for each essay by averaging over the result of the linguistic analysis of each student's essay(as found in the ```out```folder), for each assignment. I have plotted it as a lineplot to show the development across time (=essays), in order to see whether the students' grammatical usage develops the further they get in their studies.
 
-![alt text](out/pos_mean_freq.png)
+![image](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/67636ea3-461c-4178-8d1d-af70e1d08616)
+
+
 
 From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the verb usage is somewhat the same across all essays.
 
 
-![alt text](out/ner_mean_count.png)
+![image](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/8c7f0ea4-7012-452f-b396-575e9df69723)
+
 
 The second plot shows that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
 
