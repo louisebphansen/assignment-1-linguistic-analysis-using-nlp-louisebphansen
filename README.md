@@ -15,7 +15,6 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 ### Contents of the repository
 
-
 | <div style="width:120px"></div>| Description |
 |---------|:-----------|
 | ```out``` | Contains the output csv files produced by running the code in ```src``` as well as plots for the discussion |
@@ -27,7 +26,6 @@ All code was created by me, but code provided in the notebooks for the course ha
 
 
 ### Methods
-
 This project contains the code to extract relevant linguistic information from a corpus of text. More specifically, ```src/spacy_utils.py``` contains the code to extract the relative frequencies (per 10,000 words) of several parts-of-speech (POS) tags, namely nouns, verbs, adjectives and adverbs as well as unique occurences of entities of persons, organizations and locations found by named entity recognition (NER). ```src/extract_ling_information.py``` uses functions defined in the utils-script to loop over an input folder with subdirectories containing the input text files and extracts linguistic information from them. ```src/visualize.py``` contains code to visualize these results.
 
 The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and named entities. I am  using the *'en_core_web_md'* model.
@@ -36,7 +34,6 @@ The code mainly uses functions from ```spaCy``` to tokenize, find POS-tags and n
 The dataset used for this assignment is *USEcorpus*, which consists of 1,489 essays by Swedish students sorted into 14 subfolders - one for each assignment. More information can be found [here](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2457).
 
 ### Usage
-
 All code for this assignment was designed to run on an Ubuntu 24.04 operating system using Python version 3.12.2. It is therefore not guaranteed that it will work on other operating systems.
 
 It is important that you run all code from the main folder, i.e., *assignment-1-linguistic-analysis-using-nlp-louisebphansen*. Your terminal should look like this:
@@ -112,12 +109,9 @@ The plots below show the average relative frequencies of each analyzed POS-tags 
 ![image](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/67636ea3-461c-4178-8d1d-af70e1d08616)
 
 
-
 From the first plot, it is first of all evident that the students generally use more nouns and verbs compared to adjectives and adverbs. One could perhaps expect that the usage of adverbs and adjectives would increase as the students become more skilled at English, as they would be able to write more complex sentences. But that does not seem to be the case, as we don't really see a big development in the usage of these two parts of speech. The usage of nouns is changing quite a lot, wheras the verb usage is somewhat the same across all essays.
 
-
 ![image](https://github.com/louisebphansen/assignment-1-linguistic-analysis-using-nlp-louisebphansen/assets/75262659/8c7f0ea4-7012-452f-b396-575e9df69723)
-
 
 The second plot shows that students on average use more unique persons in their essays than unique locations or organizations. The usage of unique people and organizations is changing quite a lot across the essays, with essay 'b3' and 'c1' for example containing many unique people and organizations. Not very many unique locations are mentioned across the essays. 
 
