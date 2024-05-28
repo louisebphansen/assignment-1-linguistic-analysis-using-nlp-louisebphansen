@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import glob 
 
-def collect_dfs(dir_path):
+def collect_dfs(dir_path:str) -> pd.DataFrame:
     '''
     Function to gather all csv files into one pandas dataframe
     '''
@@ -28,7 +28,7 @@ def collect_dfs(dir_path):
     
     return full_df 
 
-def calc_means(full_df, essays):
+def calc_means(full_df:pd.DataFrame, essays:list) -> list:
 
     '''
     Calculate the mean relative frequency of POS and NER tags for each essay
@@ -67,12 +67,13 @@ def calc_means(full_df, essays):
         ORG_mean = df_period['Unique_ORG'].mean()
         ORG_means.append(ORG_mean)
 
+    # add lists
     pos_means = [noun_means, verb_means, adj_means, adv_means]
     ner_means = [PER_means, LOC_means, ORG_means]
 
     return pos_means, ner_means 
 
-def plot_pos(pos_means, essays):
+def plot_pos(pos_means:list, essays:list):
     '''
     Plot mean relative frequency of pos tags
     '''
@@ -90,7 +91,7 @@ def plot_pos(pos_means, essays):
 
     plt.savefig('pos_mean_freq.png')
 
-def plot_ner(ner_means, essays):
+def plot_ner(ner_means:list, essays:list):
     '''
     Plot mean unique NER tags per essay
     '''
